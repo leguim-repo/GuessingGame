@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 function GuessingGame() {
-    NumberOfFiles=$(ls -l | wc -l)
+    #NumberOfFiles=$(find . -type f | wc l)
+    NumberOfFiles=$(find . -type f -maxdepth 1 | wc -l)
     #echo $NumberOfFiles
     echo "Try to guess the number of files in the current directory"
     while true
@@ -9,7 +10,7 @@ function GuessingGame() {
         echo "Give me the number of files in the current directory"
         read response
         # check response is not empty
-        if [[ -n $response ]]
+        if [[ -n $response ]] && [[ $response =~ ^[0-9]+$ ]]
         then
             if [ $response -gt $NumberOfFiles ]
             then
