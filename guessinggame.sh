@@ -9,7 +9,7 @@ function GuessingGame() {
     do 
         echo "Give me the number of files in the current directory"
         read response
-        # check response is not empty
+        # check response is not empty and its a valid number
         if [[ -n $response ]] && [[ $response =~ ^[0-9]+$ ]]
         then
             if [ $response -gt $NumberOfFiles ]
